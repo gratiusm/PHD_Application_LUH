@@ -95,7 +95,7 @@ N_INITIAL_DESIGN = 3          # Sobol samples
 N_BO_ITERATIONS = 7           # BO iterations
 
 # Acquisition function
-WEI_WEIGHT = 0.5              # w parameter for WEI
+WEI_WEIGHT = 0.4              # w parameter for WEI
 MIN_DIST = 1e-4               # min distance to already evaluated points
 
 # Learning Rate Search Space
