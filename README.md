@@ -142,6 +142,7 @@ Each iteration plot contains:
 - `observations.csv`: All evaluations with metadata
 - `training_logs.json`: Detailed per-epoch training information
 - `final_summary.txt`: Human-readable summary report
+- `best_model.pth`: Best model save (was to big for uploading)
 
 ---
 
@@ -217,13 +218,59 @@ Modified ResNet-18 for Fashion-MNIST:
 BAYESIAN OPTIMIZATION - FINAL SUMMARY
 ======================================================================
 
+--- BEST CONFIGURATION FOUND ---
+Learning Rate: 0.055553
+Log10(LR): -1.2553
+Validation Loss: 0.260240
+Validation Accuracy: 92.2900%
+Found at Iteration: 6/10
+Test Accuracy: 91.2800%
+
+--- ALL OBSERVATIONS ---
+Iter   LR           Val Loss     Val Acc      Time(s)    Type      
+----------------------------------------------------------------------
+1      0.001964     0.378571     88.2100      355.65     Initial    *
+2      0.008003     0.336234     90.8700      354.88     Initial    *
+3      0.028319     0.303149     92.1400      354.63     Initial    *
+4      0.100000     0.301255     88.9600      355.55     BO         *
+5      0.000100     0.603998     80.2800      356.44     BO        
+6      0.055553     0.260240     92.2900      359.17     BO         *
+7      0.048002     0.262372     92.0200      356.68     BO        
+8      0.000595     0.417396     86.0900      356.43     BO        
+9      0.004251     0.359242     89.6900      356.20     BO        
+10     0.015037     0.319149     91.7700      355.19     BO        
+
+--- STATISTICS ---
+Total Evaluations: 10
+Initial Design: 3
+BO Iterations: 7
+Total Runtime: 3614.59 seconds (60.24 minutes)
+Average Time per Evaluation: 361.46 seconds
+
+--- CONFIGURATION ---
+Random Seed: 42
+Epochs per Evaluation: 10
+Batch Size: 128
+WEI Weight (w): 0.4
+LR Search Space: [10^-4, 10^-1]
+Device: cuda
+
 ```
 
 ### observations.csv:
 
 ```
-iteration,learning_rate,log_learning_rate,validation_loss,validation_accuracy,training_time_seconds,is_initial_design,is_best_so_far,timestamp
-
+iteration,learning_rate,log_learning_rate,validation_loss,validation_accuracy,training_time_seconds,is_initial_design,is_best_so_far
+1,0.001964,-2.7069,0.378571,88.2100,355.65,True,True
+2,0.008003,-2.0968,0.336234,90.8700,354.88,True,True
+3,0.028319,-1.5479,0.303149,92.1400,354.63,True,True
+4,0.100000,-1.0000,0.301255,88.9600,355.55,False,True
+5,0.000100,-4.0000,0.603998,80.2800,356.44,False,False
+6,0.055553,-1.2553,0.260240,92.2900,359.17,False,True
+7,0.048002,-1.3187,0.262372,92.0200,356.68,False,False
+8,0.000595,-3.2253,0.417396,86.0900,356.43,False,False
+9,0.004251,-2.3715,0.359242,89.6900,356.20,False,False
+10,0.015037,-1.8228,0.319149,91.7700,355.19,False,False
 
 ```
 
