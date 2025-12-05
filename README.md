@@ -317,9 +317,7 @@ The dataset should look like this:
 ├── bayesian_optimization.py     # BO main algorithm
 ├── plotting.py                  # Visualization
 ├── plots/                       # Generated plots
-├── results/                     # Logs and summaries
-├── checkpoints/                 # Model checkpoints
-└── data/                        # Fashion-MNIST (auto-downloaded)
+└── results/                     # Logs and summaries
 ```
 
 ---
